@@ -15,7 +15,7 @@ The goal was to:
 No router-on-a-stick (subinterfaces/trunk) was used—instead, dedicated router interfaces per VLAN for simplicity.
 
 ## Network Topology
-![Topology Screenshot]
+[Topology Screenshot]
 <img width="1235" height="701" alt="Enterprise Network Project 1 - Topology" src="https://github.com/user-attachments/assets/aba56eb8-909d-47f2-946d-46bd12df6869" />
 
 **Devices**:
