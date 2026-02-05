@@ -15,7 +15,7 @@ The goal was to:
 No router-on-a-stick (subinterfaces/trunk) was used—instead, dedicated router interfaces per VLAN for simplicity.
 
 ## Network Topology
-![Topology Screenshot](topology-screenshot.png)
+![Topology Screenshot](Enterprise Network Project 1 - Topology)
 
 **Devices**:
 - Router: ISR4331 (Router0)
@@ -42,28 +42,115 @@ The entire network was carefully planned in an Excel sheet for accuracy and scal
   - PCs: Static IPs (e.g., 192.168.40.130, 192.168.40.131)
 
 **Full IP table available**:  
-[ACCOUNTS-Department-IP-Table.xlsx](ACCOUNTS-Department-IP-Table.xlsx)  
+[ACCOUNTS-Department-IP-Table.xlsx](Enterprise Network Project 1 - Network Plan)  
 (This includes columns for Department, Device Name, Type, Interface, IP Address, Subnet Mask, Gateway, Network/Broadcast Addresses, Notes, and VLAN.)
 
 ## Device Configurations
-Here are the key configuration steps for each device. Full `show run` outputs are available in the [configs/ folder](configs/) if uploaded.
 
-### 1. Router (ISR4331 – Multi-Arm Routing)
+### 1. Router (ISR4331) - Multi-Arm Inter-VLAN Routing
 ```bash
 enable
 configure terminal
 
+! Interface to Switch0 (VLAN 10 - ACCOUNTS)
 interface GigabitEthernet0/0/0
- description To Switch0 - VLAN 10
+ description Connected to Switch0 Fa0/1 - VLAN 10
  ip address 192.168.40.1 255.255.255.128
  no shutdown
 exit
 
+! Interface to Switch1 (VLAN 20 - DELIVERY)
 interface GigabitEthernet0/0/1
- description To Switch1 - VLAN 20
+ description Connected to Switch1 Fa0/1 - VLAN 20
  ip address 192.168.40.129 255.255.255.128
  no shutdown
 exit
 
 end
 write memory
+```
+### 2. Switch0 (2960 - VLAN 10 / ACCOUNTS)
+```bash
+enable
+configure terminal
+
+! Create VLAN
+vlan 10
+ name ACCOUNTS
+exit
+
+! Router-facing port (must be access in VLAN 10)
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+exit
+
+! PC ports (example for PC0 and PC1)
+interface range FastEthernet0/2 - 3
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+exit
+
+end
+write memory
+```
+Verification on Switch0:
+
+show vlan brief → 
+```bash 
+Fa0/1, Fa0/2, Fa0/3 in VLAN 10.
+```
+### 3. Switch1 (2960 - VLAN 20 / DELIVERY)
+```bash 
+enable
+configure terminal
+
+! Create VLAN
+vlan 20
+ name DELIVERY
+exit
+
+! Router-facing port (must be access in VLAN 20)
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+exit
+
+! PC ports (example for PC2 and PC3)
+interface range FastEthernet0/2 - 3
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+exit
+
+end
+write memory
+```
+### 4. PCs (Static IP Setup in Packet Tracer)
+
+Click PC → Desktop tab → IP Configuration → Static.
+Example for VLAN 10 PCs:
+IP Address: 192.168.40.10 / 192.168.40.11
+Subnet Mask: 255.255.255.128
+Default Gateway: 192.168.40.1
+
+Example for VLAN 20 PCs:
+IP Address: 192.168.40.130 / 192.168.40.131
+Subnet Mask: 255.255.255.128
+Default Gateway: 192.168.40.129
+
+## How to Use This Project
+
+Download the Enterprise-Network-Project-1.pkt file.
+Open in Cisco Packet Tracer.
+Explore the topology, configs, and test pings.
+Refer to the Excel sheet for IP planning inspiration.
+
+## Lessons Learned & Challenges
+
+Matching switch access ports to the correct VLAN (e.g., Fa0/1 on Switch0 in VLAN 10) was critical—mismatch caused all inter-VLAN pings to fail.
+Default gateways on PCs must exactly match the router interface in each subnet.
+Multi-arm routing is simpler for small setups but less scalable than router-on-a-stick
