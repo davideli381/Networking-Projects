@@ -99,7 +99,7 @@ write memory
 ```
 Verification on Switch0:
 ```bash 
-show vlan brief → 
+show vlan brief 
 ```
 Fa0/1, Fa0/2, Fa0/3 in VLAN 10.
 
