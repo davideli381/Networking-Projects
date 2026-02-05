@@ -15,8 +15,8 @@ The goal was to:
 No router-on-a-stick (subinterfaces/trunk) was used—instead, dedicated router interfaces per VLAN for simplicity.
 
 ## Network Topology
-![Topology Screenshot](<img width="1235" height="701" alt="Enterprise Network Project 1 - Topology" src="https://github.com/user-attachments/assets/44ce2b4b-44f9-4c29-97df-6ede68465b7a" />
-)
+![Topology Screenshot]
+<img width="1235" height="701" alt="Enterprise Network Project 1 - Topology" src="https://github.com/user-attachments/assets/aba56eb8-909d-47f2-946d-46bd12df6869" />
 
 **Devices**:
 - Router: ISR4331 (Router0)
