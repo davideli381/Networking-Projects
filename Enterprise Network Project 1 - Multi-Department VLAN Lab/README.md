@@ -98,11 +98,11 @@ end
 write memory
 ```
 Verification on Switch0:
-
-show vlan brief → 
 ```bash 
-Fa0/1, Fa0/2, Fa0/3 in VLAN 10.
+show vlan brief → 
 ```
+Fa0/1, Fa0/2, Fa0/3 in VLAN 10.
+
 ### 3. Switch1 (2960 - VLAN 20 / DELIVERY)
 ```bash 
 enable
