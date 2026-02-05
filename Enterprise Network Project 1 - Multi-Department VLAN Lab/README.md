@@ -15,7 +15,8 @@ The goal was to:
 No router-on-a-stick (subinterfaces/trunk) was used—instead, dedicated router interfaces per VLAN for simplicity.
 
 ## Network Topology
-![Topology Screenshot](Enterprise Network Project 1 - Topology)
+![Topology Screenshot](<img width="1235" height="701" alt="Enterprise Network Project 1 - Topology" src="https://github.com/user-attachments/assets/44ce2b4b-44f9-4c29-97df-6ede68465b7a" />
+)
 
 **Devices**:
 - Router: ISR4331 (Router0)
@@ -41,8 +42,8 @@ The entire network was carefully planned in an Excel sheet for accuracy and scal
   - Router gateway: 192.168.40.129
   - PCs: Static IPs (e.g., 192.168.40.130, 192.168.40.131)
 
-**Full IP table available**:  
-[ACCOUNTS-Department-IP-Table.xlsx](Enterprise Network Project 1 - Network Plan)  
+**Full IP table available**:  ([Enterprise Network Project 1 - Network Plan.xlsx](https://github.com/user-attachments/files/25090744/Enterprise.Network.Project.1.-.Network.Plan.xlsx)
+)  
 (This includes columns for Department, Device Name, Type, Interface, IP Address, Subnet Mask, Gateway, Network/Broadcast Addresses, Notes, and VLAN.)
 
 ## Device Configurations
