@@ -1,6 +1,6 @@
 # Network Lab Series
 
-This repository documents my hands-on networking labs as I learn and gain exposure to **enterprise**, **advanced**, and **secure** network designs. Built with Cisco Packet Tracer, GNS3, and real-world concepts—perfect for CCNA-level practice and beyond.
+This repository documents my hands-on networking labs as I learn and gain exposure to **enterprise**, **advanced**, and **secure** network designs. Built with Cisco Packet Tracer, and real-world concepts—perfect for CCNA-level practice and beyond.
 
 ## Table of Contents
 - [About Me](#about-me)
@@ -24,7 +24,6 @@ Labs are organized by complexity and focus area:
 - Microsoft Excel (for IP planning)
 - GitHub for documentation
 
+All feedback welcome!
 
-Feel free to open issues or PRs with suggestions/improvements. All feedback welcome!
 
-Happy networking! 🚀
