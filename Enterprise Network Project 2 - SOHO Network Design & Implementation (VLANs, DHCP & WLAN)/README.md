@@ -23,7 +23,7 @@ This project designs and simulates a small branch office network for **XYZ Compa
 - Base network: 192.168.1.0/24 (subnetted into three /26 subnets)
 
 ## Network Topology
-![Enterprise Network Project 2 - Topology](<img width="1627" height="702" alt="Enterprise Network Project 2 - Toplogy" src="https://github.com/user-attachments/assets/7bff89ba-1582-462d-8e54-cb91f3020073" />)
+<img width="1627" height="702" alt="Enterprise Network Project 2 - Toplogy" src="https://github.com/user-attachments/assets/7bff89ba-1582-462d-8e54-cb91f3020073" />
 
 Color-coded departments in Packet Tracer:
 - Pink → Admin/IT (VLAN 10)
